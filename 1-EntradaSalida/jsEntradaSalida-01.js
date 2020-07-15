@@ -6,5 +6,5 @@ function mostrar()
 	alert("The first one");
 	alert("The second one");
 	alert("The third one"); 
-}
 
+}
