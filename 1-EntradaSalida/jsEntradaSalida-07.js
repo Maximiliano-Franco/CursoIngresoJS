@@ -5,21 +5,64 @@ mostrar el resulto por medio de "ALERT"
 ej.: "la Resta es 750"*/ 
 function sumar()
 {	
-	
+    let num1;
+    let num2;
+    let resultado;
+
+    num1 = parseFloat(document.getElementById("txtIdNumeroUno").value);
+    num2 = parseFloat(document.getElementById("txtIdNumeroDos").value);
+
+    resultado = num1 + num2;
+    resultado = resultado.toFixed(2);
+
+    //"to.Fixed" es para acortar la cantidad de decimales a la cantidad que le indicamos en ()
+    
+    alert(resultado);
+
 }
 
 function restar()
 {
-	
+	let num1;
+    let num2;
+    let resultado;
+
+    num1 = parseFloat(document.getElementById("txtIdNumeroUno").value);
+    num2 = parseFloat(document.getElementById("txtIdNumeroDos").value);
+
+    resultado = num1 - num2;
+    resultado = resultado.toFixed(2);
+
+    alert(resultado);
 }
 
 function multiplicar()
 { 
-	
+	let num1;
+    let num2;
+    let resultado;
+
+    num1 = parseFloat(document.getElementById("txtIdNumeroUno").value);
+    num2 = parseFloat(document.getElementById("txtIdNumeroDos").value);
+
+    resultado = num1 * num2;
+    resultado = resultado.toFixed(2);
+
+    alert(resultado);
 }
 
 function dividir()
 {
-	
+	let num1;
+    let num2;
+    let resultado;
+
+    num1 = parseFloat(document.getElementById("txtIdNumeroUno").value);
+    num2 = parseFloat(document.getElementById("txtIdNumeroDos").value);
+
+    resultado = num1 / num2;
+    resultado = resultado.toFixed(2);
+
+    alert(resultado);
 }
 
