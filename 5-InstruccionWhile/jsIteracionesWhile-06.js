@@ -1,13 +1,31 @@
 function mostrar()
 {
-	var contador;
-	var acumulador;
-	var numeroIngresado;
+	/* Hecho sin el while();
+	let num1;
+	let num2;
+	let num3;
+	let num4;
+	let num5;
+	let numFinal;
 
-	contador=0;
-	acumulador=0;
+	num1= parseInt(prompt("Ingrese un numero"));
+	num2= parseInt(prompt("Ingrese un numero"));
+	num3= parseInt(prompt("Ingrese un numero"));
+	num4= parseInt(prompt("Ingrese un numero"));
+	num5= parseInt(prompt("Ingrese un numero"));*/
+
 	
-	
-	txtIdSuma.value=acumulador;
-	txtIdPromedio.value=acumulador/5;
-}//FIN DE LA FUNCIÓN
+	let numFinal= 0;
+	let i= 0;
+
+	while (i<5){
+
+		numFinal+= parseInt(prompt("Ingrese un numero"));
+		i++;
+
+	}
+
+	document.getElementById("txtIdSuma").value = numFinal;
+	document.getElementById("txtIdPromedio").value = (numFinal / 5);
+
+}

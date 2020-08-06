@@ -1,6 +1,26 @@
 function mostrar()
 {
-	var destinoIngresado =txtIdDestino.value;
-	alert(destinoIngresado);
+	let destino;
+	destino = document.getElementById("txtIdDestino").value;
 
-}//FIN DE LA FUNCIÓN
+	/*if ((destino== "Bariloche") || (destino== "Ushuaia")){
+		alert ("Si vas a este destino pasaras Frio");
+	}
+	else {
+		alert ("Si vas a este destino pasaras Calor");
+	}*/
+
+	switch (destino){
+		case "Bariloche":
+		case "Ushuaia":
+			alert ("Si vas a este destino pasaras Frio");
+		break;
+
+		case "Cataratas":
+		case "Mar del plata":
+			alert ("Si vas a este destino pasaras Calor");
+		break;
+		
+	}
+
+}

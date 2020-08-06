@@ -1,7 +1,13 @@
-/*
-al presionar el botón mostrar 10 repeticiones 
-con números ASCENDENTE, desde el 1 al 10.*/
+
 function mostrar()
 {
-	alert('iteración while');
-}//FIN DE LA FUNCIÓN
+	
+	let i= 0; // declarar e inicializar la variable de control
+	
+	while ( i<=2 /*es igual a i<3*/ ){  // Variable de control define si el while se repite (condicion)
+		console.log("hola"); //modificacion de variable de control
+		i++;
+	}
+	
+	alert ("Estoy despues del while");*/
+}
