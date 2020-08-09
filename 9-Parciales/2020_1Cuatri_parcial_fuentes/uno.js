@@ -1,108 +1,88 @@
 
 function mostrar()
 {
-	// declaracion de variables
-	let tipo;
-	let precio;
 	let cantidad;
-	let marca;
 	let fabricante;
-	let acumuladorBarbijo = 0;
+	let marca;
+	let precio;
+	let tipo;
 	let acumuladorAlcohol = 0;
+	let acumuladorBarbijo = 0;
 	let acumuladorJabon = 0;
+	let cantidadAlcoholBarato;
 	let contBarbijo = 0;
 	let contAlcohol = 0;
 	let contJabon = 0;
-	let precioAlcoholBarato;
-	let cantidadAlcoholBarato;
-	let fabricanteAlcoholBarato;
-	let promedioCompra;
+	let fabricanteAlcohoBarato;
 	let mayorTipo;
+	let precioAlcoholBarato;
+	let promedioCompra;
 	let flagAlcohol = 0;
 	let mensajeAlcohol = "No se compraron alcoholes";
 	let mensajeB;
-	let mensajeJabon;
-
-
-
-	// tengo que generar un bucle que se repita 5 veces
-	// (tipo, precio, cantidad, marca, fabricante) valido segun corresponda
-	// (utilizo for porque se de antemano cantidad de repeticiones)
+	let mensajeJ;
 
 	for(let i = 0; i < 5; i++){
-		
-		tipo = prompt('Ingrese tipo "barbijo", "jabon" o "alcohol": ');
-		while (tipo != "barbijo" && tipo != "jabon" && tipo != "alcohol") {
-			tipo = prompt('Tipo invalido. Ingrese tipo "barbijo", "jabon" o "alcohol": ');
+
+		tipo = prompt('Ingrese tipo "barbijo, "jabon" o "alcohol: "');
+		while(tipo != "barbijo" && tipo != "jabon" && tipo != "alcohol"){
+			tipo = prompt('Tipo inválido. Ingrese tipo "barbijo, "jabon" o "alcohol: "');
 		}
-		
-		precio = parseFloat(prompt("Ingrese precio ($100-$300): "));
-		while (precio < 100 || precio > 300 || isNaN(precio)) {
-			precio = parseFloat(prompt("Error. Ingrese precio ($100-$300): "));
-	
+		precio = parseFloat(prompt("Ingrese precio $(100-300)"));
+		while(precio < 100 || precio > 300 || isNaN(precio)){
+			precio = parseFloat(prompt("Precio inválido. Ingrese precio $(100-300)"));
 		}
-		
-		cantidad = parseFloat(prompt("Ingrese cantidad (max. 1000): "));
-		while (!(cantidad > 0 && cantidad <= 1000)) {
-			cantidad = parseFloat(prompt("Error. Ingrese cantidad (max. 1000): "));	
+		cantidad = parseInt(prompt("Ingrese cantidad. Máximo 1000"));
+		while(!(cantidad > 0 || cantidad <= 1000)){
+			cantidad = parseFloat(prompt("Cantidad inválida. Ingrese cantidad. Máximo 1000"));
 		}
 		marca = prompt("Ingrese marca: ");
-		fabricante = prompt ("Ingrese fabricante: ");
+		fabricante = prompt("Ingrese fabricante");
 		
-	
-
-		// A - reconocer si el producto es alcohol y recordar precio, cantidad y fabricante de menor precio
-		// B - acumular cantidades de unidades de cada tipo y la cantidad tipo de producto para sacar el promedio de compra de acumulador mayor
-		// C - acumular cantidad de jabones
-
-		switch (tipo) {
-
+		switch(tipo){
 			case "alcohol":
 				acumuladorAlcohol += cantidad;
 				contAlcohol++;
 
-				if (flagAlcohol == 0 || precioAlcoholBarato > precio){
+				if(flagAlcohol == 0 || precioAlcoholBarato > precio){
 					precioAlcoholBarato = precio;
 					cantidadAlcoholBarato = cantidad;
-					fabricanteAlcoholBarato = fabricante;
+					fabricanteAlcohoBarato = fabricante;
+					flagAlcohol = 1;
 				}
 				break;
-
 			case "barbijo":
 				acumuladorBarbijo += cantidad;
-				contAlcohol++;
+				contBarbijo++;
 				break;
-			
 			case "jabon":
 				acumuladorJabon += cantidad;
-				contAlcohol++;
+				contJabon++;
 				break;
-		}	
+		}
 	}
 
-	if(acumuladorAlcohol > acumuladorBarbijo && acumuladorAlcohol > acumuladorJabon) {
-		mayorTipo = "alcohol";
+	if(acumuladorAlcohol > acumuladorBarbijo && acumuladorAlcohol > acumuladorJabon){
+		mayorTipo = "Alcohol";
 		promedioCompra = acumuladorAlcohol / contAlcohol;
-
-	} else if (acumuladorBarbijo >= acumuladorAlcohol && acumuladorBarbijo > acumuladorJabon) {
-		mayorTipo = "barbijo";
+	}
+	else if(acumuladorBarbijo >= acumuladorAlcohol && acumuladorBarbijo > acumuladorJabon){
+		mayorTipo = "Barbijo";
 		promedioCompra = acumuladorBarbijo / contBarbijo;
-
-	} else if (acumuladorJabon > acumuladorBarbijo && acumuladorJabon > acumuladorAlcohol){
-		mayorTipo = "jabon";
-		promedioCompra = acumuladorJabon / contJabon;	
+	}
+	else{
+		mayorTipo = "Jabon";
+		promedioCompra = acumuladorJabon / contJabon;
 	}
 
 	if(flagAlcohol == 1){
-		mensajeAlcohol = "A- Fabricante alcohol barato " + fabricanteAlcoholBarato +
-		"\nCantidad: " + cantidadAlcoholBarato +
+		mensajeAlcohol = "Fabricante alcohol barato: " + fabricanteAlcohoBarato + 
+		"\nCantidad: " + cantidadAlcoholBarato + 
 		"\nPrecio: " + precioAlcoholBarato;
 	}
+	mensajeB = "B- Tipo con más unidades: " + mayorTipo + " Promedio" + promedioCompra;
+	mensajeJ = "C- Unidades de jabon: " + acumuladorJabon;
 
-	mensajeb = "B- Tipo con mas unidades: " + mayorTipo + "Promedio: " + promedioCompra;
-	mensajeJabon = "C- Unidades de jabon: "	+ acumuladorJabon;
-
-	alert(mensajeAlcohol + "\n" + mensajeB + "\n" + mensajeJabon);
-
-
+	alert(mensajeAlcohol + "\n" + mensajeB + "\n" + mensajeJ);
+	
 }
